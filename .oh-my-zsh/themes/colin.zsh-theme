@@ -94,6 +94,10 @@ prompt_context() {
   fi
 }
 
+prompt_codespace() {
+  prompt_segment black default "🤖"
+}
+
 # Git: branch/detached head, dirty status
 prompt_git() {
   (( $+commands[git] )) || return
@@ -230,12 +234,10 @@ prompt_status() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_codespace
   prompt_status
   prompt_virtualenv
   prompt_dir
-  prompt_git
-  prompt_bzr
-  prompt_hg
   prompt_end
 }
 
