@@ -32,6 +32,7 @@ export PATH=/usr/local/go/bin:$PATH
 export TERM=xterm-256color
 
 alias tmux='tmux -u'
+alias vim='nvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
