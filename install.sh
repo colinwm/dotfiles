@@ -1,10 +1,10 @@
 #!/bin/bash
 
 sudo chsh -s "$(which zsh)" "$(whoami)"
-cp -f $(pwd)/.zshrc $HOME/.zshrc
-cp -f $(pwd)/.tmux.conf $HOME/.tmux.conf
-cp -f $(pwd)/.configs $HOME
-cp -f $(pwd)/.oh-my-zsh $HOME
+cp -rf $(pwd)/.zshrc $HOME/.zshrc
+cp -rf $(pwd)/.tmux.conf $HOME/.tmux.conf
+cp -rf $(pwd)/.configs $HOME
+cp -rf $(pwd)/.oh-my-zsh $HOME
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
