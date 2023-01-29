@@ -4,6 +4,7 @@ sudo chsh -s "$(which zsh)" "$(whoami)"
 cp -f $(pwd)/.zshrc $HOME/.zshrc
 cp -f $(pwd)/.tmux.conf $HOME/.tmux.conf
 cp -f $(pwd)/.configs $HOME
+cp -f $(pwd)/.oh-my-zsh $HOME
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
@@ -20,3 +21,5 @@ if [ -d "/workspaces/github/bin/" ]; then
     sudo ln -s /workspaces/github/bin/bundle /usr/local/bin/bundle
     sudo ln -s /workspaces/github/bin/solargraph /usr/local/bin/solargraph
 fi
+
+nvim --headless +PlugInstall +qall
