@@ -27,6 +27,7 @@ export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.x20/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=$HOME/.fzf/bin/:$PATH
 
 export PATH=/usr/local/go/bin:$PATH
 

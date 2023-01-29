@@ -11,6 +11,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+cargo install g2
+
 if [ -d "/workspaces/github/bin/" ]; then
     sudo ln -s /workspaces/github/bin/npm /usr/local/bin/npm
     sudo ln -s /workspaces/github/bin/tsc /usr/local/bin/tsc
