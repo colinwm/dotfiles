@@ -1,0 +1,5 @@
+branch_prefix = "colinwm-"
+
+[[repos]]
+path = "git@github.com:github/github.git"
+main_branch = "master"

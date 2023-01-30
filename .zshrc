@@ -12,6 +12,7 @@ ZSH_THEME="colin"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/configs/
 
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -29,10 +30,9 @@ export PATH=$HOME/.x20/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export PATH=$HOME/.fzf/bin/:$PATH
 export PATH=/usr/local/go/bin:$PATH
-
-export ZSHPATH=$PATH
-
 export TERM=xterm-256color
+
+export MULTI_TENANT_ENTERPRISE=0
 
 alias tmux='tmux -u'
 alias vim='nvim'
