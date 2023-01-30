@@ -32,9 +32,6 @@ export PATH=/usr/local/go/bin:$PATH
 
 export ZSHPATH=$PATH
 
-echo "path!"
-echo $PATH
-
 export TERM=xterm-256color
 
 alias tmux='tmux -u'
