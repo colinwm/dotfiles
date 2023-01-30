@@ -9,6 +9,9 @@ cp -rf $(pwd)/gitconfig $HOME/.gitconfig
 cp -rf $(pwd)/.oh-my-zsh $HOME
 cp $(pwd)/tmux-url-select $HOME/bin
 
+mkdir -p ~/.g2
+cp -rf $(pwd)/g2.toml $HOME/.g2/g2.toml
+
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
@@ -37,3 +40,8 @@ ln -s /workspaces/github/.git $HOME/.g2/repos/github.git
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 /home/linuxbrew/.linuxbrew/bin/nvim --headless +PlugInstall +qall
+
+# Setup CoC further
+cd ~/.local/share/nvim/plugged/coc.nvim
+npm install yarn
+./node_modules/yarn/bin/yarn install
