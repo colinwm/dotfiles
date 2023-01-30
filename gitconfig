@@ -1,0 +1,19 @@
+[user]
+  name = Colin Merkel
+  email = colinwm@github.com
+[core]
+  editor = nvim
+[commit]
+  gpgsign = true
+[github]
+  user = colinwm
+[push]
+  default = current
+[http]
+  sslVerify = true
+[pull]
+  rebase = false
+[remote "origin"]
+  prune = true
+[init]
+  defaultBranch = main

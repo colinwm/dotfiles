@@ -28,8 +28,9 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.x20/bin:$PATH
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export PATH=$HOME/.fzf/bin/:$PATH
-
 export PATH=/usr/local/go/bin:$PATH
+
+export ZSHPATH=$PATH
 
 echo "path!"
 echo $PATH
