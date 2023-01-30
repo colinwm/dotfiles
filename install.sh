@@ -5,6 +5,7 @@ mkdir -p $HOME/bin
 cp -rf $(pwd)/.zshrc $HOME/.zshrc
 cp -rf $(pwd)/.tmux.conf $HOME/.tmux.conf
 cp -rf $(pwd)/.config $HOME
+cp -rf $(pwd)/gitconfig $HOME/.gitconfig
 cp -rf $(pwd)/.oh-my-zsh $HOME
 cp $(pwd)/tmux-url-select $HOME/bin
 
