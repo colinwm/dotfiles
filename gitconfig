@@ -3,8 +3,6 @@
   email = colinwm@github.com
 [core]
   editor = nvim
-[commit]
-  gpgsign = true
 [github]
   user = colinwm
 [push]

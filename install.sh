@@ -27,6 +27,13 @@ if [ -d "/workspaces/github/bin/" ]; then
     sudo ln -s /workspaces/github/bin/solargraph /usr/local/bin/solargraph
 fi
 
+# Detach head of github/github to enable workspaces
+cd /workspaces/github
+git checkout HEAD~1
+mkdir -p $HOME/.g2/repos
+ln -s /workspaces/github/.git $HOME/.g2/repos/github.git
+
+# Install plugins in neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 /home/linuxbrew/.linuxbrew/bin/nvim --headless +PlugInstall +qall
