@@ -1,12 +1,48 @@
 #!/bin/bash
+set -e
 
-# Kill child processes on exit
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 
-# Forward the lemonade port
-ssh -R 2489:localhost:2489 codespace &
+CODESPACE=$(gh cs list | grep Available | tail -n 1 | cut -f1)
 
-# Start lemonade server
+# Sync any command history
+gh cs -c $CODESPACE cp -e 'remote:$HOME/.zsh_history' /tmp/codespace_zsh_history
+
+touch $HOME/codespace_zsh_history
+REMOTE_WC=$(wc -l /tmp/codespace_zsh_history | cut -d' ' -f1)
+LOCAL_WC=$(wc -l $HOME/codespace_zsh_history | cut -d' ' -f1)
+
+if [ "$REMOTE_WC" -gt "$LOCAL_WC" ]; then
+  echo "Downloaded remote command history"
+  cp -f /tmp/codespace_zsh_history $HOME/codespace_zsh_history
+else
+  echo "Uploaded command history"
+  gh cs -c $CODESPACE cp -e $HOME/codespace_zsh_history 'remote:$HOME/.zsh_history'
+fi
+
+# To set up the ssh config, put something like this in ~/.ssh/config
+
+# Match all
+# Include ~/.ssh/codespaces
+
+# And create a file called ~/.ssh/codespaces.template with this content
+
+#Host codespace
+#  User vscode
+#  ProxyCommand /usr/bin/gh cs ssh -c CODESPACENAME --stdio -- 
+#  UserKnownHostsFile=/dev/null
+#  StrictHostKeyChecking no
+#  LogLevel quiet
+#  ControlMaster auto
+
+# and you can install lemonade with
+
+# go install github.com/lemonade-command/lemonade@latest
+
+cat ~/.ssh/codespaces.template | sed "s/CODESPACENAME/$CODESPACE/g" > ~/.ssh/codespaces
+
+ssh -NT -R 2489:localhost:2489 codespace -o ExitOnForwardFailure=yes &
+
 lemonade server &
 
-# TODO: port forwarding
+gh cs -c $CODESPACE ports forward 80:7777
