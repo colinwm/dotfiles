@@ -26,6 +26,9 @@ if [ -d "/workspaces/github/bin/" ]; then
     sudo ln -s /workspaces/github/bin/solargraph /usr/local/bin/solargraph
 fi
 
+# Install lemonade
+go install github.com/lemonade-command/lemonade@latest
+
 # Install g2
 mkdir -p ~/.g2/branches
 cp -rf $(pwd)/g2.toml $HOME/.g2/g2.toml
