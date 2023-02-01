@@ -36,6 +36,7 @@ com! -nargs=0 LoadGitBuffers call LoadGitBuffers()
 nnoremap <leader>pp :LoadGitBuffers<CR>
 map <c-p> :FZF<CR>
 nnoremap <leader>ps :Lines<CR>
+nnoremap <leader>d :CocDiagnostics<CR>
 
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = "rustfmt"
