@@ -9,8 +9,10 @@ CODESPACE=$(gh cs list | grep Available | tail -n 1 | cut -f1)
 gh cs -c $CODESPACE cp -e 'remote:$HOME/.zsh_history' /tmp/codespace_zsh_history
 
 touch $HOME/codespace_zsh_history
-REMOTE_WC=$(wc -l /tmp/codespace_zsh_history | cut -d' ' -f1)
-LOCAL_WC=$(wc -l $HOME/codespace_zsh_history | cut -d' ' -f1)
+REMOTE_WC=$(wc -l /tmp/codespace_zsh_history | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | cut -d' ' -f1)
+LOCAL_WC=$(wc -l $HOME/codespace_zsh_history | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | cut -d' ' -f1)
+echo "REMOTE_WC: $REMOTE_WC"
+echo "LOCAL_WC: $LOCAL_WC"
 
 if [ "$REMOTE_WC" -gt "$LOCAL_WC" ]; then
   echo "Downloaded remote command history"
