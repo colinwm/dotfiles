@@ -1,6 +1,5 @@
 inoremap jk <ESC>
 nmap ; :
-set tabstop=4
 set ignorecase
 set expandtab
 set number
@@ -9,6 +8,10 @@ set hlsearch
 set nowrap
 
 let mapleader = " "
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " Fix the clipboard
 set clipboard=unnamed
