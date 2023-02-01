@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Kill child processes on exit
+trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+
+# Forward the lemonade port
+ssh -R 2489:localhost:2489 codespace &
+
+# Start lemonade server
+lemonade server &
+
+# TODO: port forwarding
