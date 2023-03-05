@@ -39,7 +39,7 @@ alias vim='nvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export EDITOR=vim
+export EDITOR=nvim
 
 TZ='America/New_York'; export TZ
 
